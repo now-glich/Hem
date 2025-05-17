@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>?</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -55,8 +54,7 @@
       })
       .then(res => res.json())
       .then(data => {
-        alert("Pesan terkirim!");
-        console.log(data);
+        console.log("Pesan berhasil:", data);
       })
       .catch(err => {
         alert("Gagal kirim");
@@ -64,8 +62,15 @@
       });
     }
 
-    document.getElementById("or").addEventListener("click", () => kirimPesan("R"));
-    document.getElementById("iy").addEventListener("click", () => kirimPesan("Y"));
+    document.getElementById("or").addEventListener("click", () => {
+      alert("ok");
+      kirimPesan("R");
+    });
+
+    document.getElementById("iy").addEventListener("click", () => {
+      alert("ooo okeyy");
+      kirimPesan("Y");
+    });
   </script>
 </body>
 </html>
