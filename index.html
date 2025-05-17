@@ -1,91 +1,71 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <title>?</title>
-
   <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-  <h1>koen si esih seneng nyong?</h1>
-
-  <button id="or">r</button>
-  <button id="iy">y</button>
-  <script>
-    const token = "7863308826:AAGqBrSJfXb5tgUqYNJVTfHeIetqOZ9BzvQ";
-const chatId = "7420684427";
-
-function kirimPesan(teks) {
-  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: teks
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("Pesan terkirim!");
-    console.log(data);
-  })
-  .catch(err => {
-    alert("Gagal kirim");
-    console.error(err);
-  });
-}
-
-// Event untuk tombol R
-document.getElementById("or").addEventListener("click", function () {
-  kirimPesan("R");
-});
-
-// Event untuk tombol Y
-document.getElementById("iy").addEventListener("click", function () {
-  kirimPesan("Y");
-});
-  </script>
-</body>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f5f5f5;
+    }
 
-  font-family: Arial, sans-serif;
+    h1 {
+      color: #333;
+    }
 
-  text-align: center;
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
 
-  padding-top: 50px;
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>koen si esih seneng nyong?</h1>
+  <button id="or">r</button>
+  <button id="iy">y</button>
 
-  background-color: #f5f5f5;
+  <script>
+    const token = "7863308826:AAGqBrSJfXb5tgUqYNJVTfHeIetqOZ9BzvQ";
+    const chatId = "1747477609";
 
-}
+    function kirimPesan(teks) {
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: teks
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("Pesan terkirim!");
+        console.log(data);
+      })
+      .catch(err => {
+        alert("Gagal kirim");
+        console.error(err);
+      });
+    }
 
-h1 {
-
-  color: #333;
-
-}
-
-button {
-
-  background-color: #4CAF50; /* warna hijau */
-
-  color: white;
-
-  border: none;
-
-  padding: 12px 24px;
-
-  margin: 10px;
-  
-    <style>
-
-  </html>
+    document.getElementById("or").addEventListener("click", () => kirimPesan("R"));
+    document.getElementById("iy").addEventListener("click", () => kirimPesan("Y"));
+  </script>
+</body>
+</html>
